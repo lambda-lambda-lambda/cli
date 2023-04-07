@@ -1,0 +1,39 @@
+{
+  "name": "cli",
+  "description": "Lambda Lambda Lambda CLI",
+  "version": "0.0.1",
+  "main": "src/cli.js",
+  "scripts": {
+    "compile": "tsc -p ./",
+    "lint": "eslint . --ext .ts,.tsx",
+    "watch": "tsc -watch -p ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lambda-lambda-lambda/cli.git"
+  },
+  "keywords": [
+    "lambda-lambda-lambda",
+    "typescript",
+    "command-line",
+    "tools"
+  ],
+  "bugs": {
+    "url": "https://github.com/lambda-lambda-lambda/cli/issues"
+  },
+  "homepage": "https://github.com/lambda-lambda-lambda/cli#readme",
+  "author": "Marc S. Brooks <devel@mbrooks.info> (https://mbrooks.info)",
+  "license": "MIT",
+  "dependencies": {
+    "change-case": "^4.1.2",
+    "find": "^0.3.0",
+    "template-file": "^6.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.18.3",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "eslint": "^8.27.0",
+    "typescript": "^4.8.4"
+  }
+}
