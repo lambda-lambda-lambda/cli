@@ -1,13 +1,12 @@
 /**
  *  lambda-lambda-lambda/cli
- *  VS Code tool to create a new L³ application.
+ *  Command-line tool to create a new L³ application.
  *
  *  Copyright 2023, Marc S. Brooks (https://mbrooks.info)
  *  Licensed under the MIT license:
  *  http://www.opensource.org/licenses/mit-license.php
  */
 
-import {commands, window, workspace}      from 'vscode';
 import {camelCase, paramCase, pascalCase} from 'change-case';
 import {renderFile}                       from 'template-file';
 
@@ -68,7 +67,7 @@ export async function createFiles(appConfig: AppConfig, extPath: string) {
     }
   }
 
-  window.showInformationMessage('Created application sources.');
+  throw new Error('Created application sources');
 }
 
 /**
@@ -93,8 +92,6 @@ export async function createFile(name: string, extPath: string, outPath: string)
 
   const content: string = await renderFile(tplFile, {...vars});
   fs.writeFileSync(outFile, content, 'utf8');
-
-  commands.executeCommand('workbench.files.action.refreshFilesExplorer');
 }
 
 /**
@@ -107,7 +104,7 @@ function getAppPrefix(): string | void {
     return JSON.parse(fs.readFileSync(files[0], 'utf8')).router.prefix;
   }
 
-  window.showErrorMessage('Failed to load application config.');
+  throw new Error('Failed to load application config');
 }
 
 /**
@@ -137,9 +134,8 @@ function getResourcePath(value: string): string {
 /**
  * Return the Workspace root path.
  */
-function getWorkspace(): string | undefined {
-  return (workspace.workspaceFolders)
-    ? workspace.workspaceFolders[0].uri.fsPath : undefined;
+function getWorkspace(): string {
+  return process.cwd();
 }
 
 /**
