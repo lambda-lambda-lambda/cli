@@ -19,8 +19,8 @@ import {AppConfig, TemplateVars} from './types';
 /**
  * Generate app sources from templates.
  */
-export async function createFiles(appConfig: AppConfig, extPath: string) {
-  const templates = `${extPath}/templates`;
+export async function createFiles(appConfig: AppConfig, pkgPath: string) {
+  const templates = `${pkgPath}/templates`;
   const manifest  = `${templates}/MANIFEST`;
 
   const vars: TemplateVars = {
@@ -67,7 +67,7 @@ export async function createFiles(appConfig: AppConfig, extPath: string) {
     }
   }
 
-  throw new Error('Created application sources');
+  console.log('Created application sources');
 }
 
 /**
