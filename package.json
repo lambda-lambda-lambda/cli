@@ -1,6 +1,6 @@
 {
   "name": "cli",
-  "description": "Lambda Lambda Lambda CLI",
+  "description": "Command-line tool to create a new L³ application.",
   "version": "0.0.1",
   "main": "src/cli.js",
   "scripts": {
