@@ -45,27 +45,27 @@ program
 
       // Validate option values.
       if (name && !/^[a-zA-Z0-9]{1,40}$/.test(name) || !name) {
-        errors.push('  --name allowed values: Up to 40 alphanumeric characters');
+        errors.push("  option '--name <value>' allows up to 40 alphanumeric characters");
       }
 
       if (description && !/^[\w-.,!? ]{1,100}$/.test(description) || !description) {
-        errors.push('  --description allowed values: Up to 100 alphanumeric and -.,!? characters');
+        errors.push("  option '--description <value>' allows up to 100 alphanumeric and -.,!? characters");
       }
 
       if (prefix && !/^\/[\w-]{0,100}$/.test(prefix)) {
-        errors.push('  --prefix allowed values: Up to 100 alphanumeric and - characters');
+        errors.push("  option '--prefix <path>' allows up to 100 alphanumeric and - characters");
       }
 
       if (timeout && /^[\d]{1,2}$/.test(timeout)) {
-        errors.push('  --timeout allowed values: Up to 2 numeric characters');
+        errors.push("  option '--timeout <number>' allows up to 2 numeric characters");
       }
 
       if (sdkVersion && /^[a-zA-Z0-9]{1,40}$/.test(sdkVersion)) {
-        errors.push('  --sdk-version allowed values: Up to 40 numeric and . characters');
+        errors.push("  option '--sdk-version <number>' allows up to 40 numeric and . characters");
       }
 
       if (errors.length) {
-        console.error('ERROR: Invalid script arguments');
+        console.error('error: Invalid script arguments');
 
         throw new Error(errors.join('\n'));
       }
