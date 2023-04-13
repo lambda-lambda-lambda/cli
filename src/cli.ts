@@ -29,30 +29,57 @@ const program = new Command();
 program
   .usage('[options]')
 
-  /* eslint-disable max-len */
-  .option('--name <value>', 'Application name (Example: restfulApiHandler)', /^[a-zA-Z0-9]{1,40}$/)
-  .option('--description <value>', 'Description', /^[\w-.,!? ]{1,100}$/)
-  .option('--prefix <path>', 'Request prefix (Example: /api)', /^\/[\w-]{0,100}$/, '/')
-  .option('--timeout <number>', 'Function timeout (in seconds)', /^[\d]{1,2}$/, '15')
-  .option('--sdk-version <number>', 'AWS SDK for JavaScript version', /^[a-zA-Z0-9]{1,40}$/, '2')
+  .option('--name <value>', 'Application name (Example: restfulApiHandler)')
+  .option('--description <value>', 'Description')
+  .option('--prefix <path>', 'Request prefix (Example: /api)', '/')
+  .option('--timeout <number>', 'Function timeout (in seconds)', '15')
+  .option('--sdk-version <number>', 'AWS SDK for JavaScript version', '2')
   .option('--asynchronous', 'Use asynchronous handler?', false)
-  .action(function(this: any, opts: AppConfig) {
-    const {name, description, prefix, timeout, sdkVersion, asynchronous} = opts;
 
-    if (name && description && prefix &&  timeout && sdkVersion && asynchronous) {
+  .action(async function(this: any, opts: AppConfig) {
+    const {name, description, prefix, timeout, sdkVersion} = opts;
+
+    const errors = [];
+
+    try {
+
+      // Validate option values.
+      if (name && !/^[a-zA-Z0-9]{1,40}$/.test(name) || !name) {
+        errors.push('  --name allowed values: Up to 40 alphanumeric characters');
+      }
+
+      if (description && !/^[\w-.,!? ]{1,100}$/.test(description) || !description) {
+        errors.push('  --description allowed values: Up to 100 alphanumeric and -.,!? characters');
+      }
+
+      if (prefix && !/^\/[\w-]{0,100}$/.test(prefix)) {
+        errors.push('  --prefix allowed values: Up to 100 alphanumeric and - characters');
+      }
+
+      if (timeout && /^[\d]{1,2}$/.test(timeout)) {
+        errors.push('  --timeout allowed values: Up to 2 numeric characters');
+      }
+
+      if (sdkVersion && /^[a-zA-Z0-9]{1,40}$/.test(sdkVersion)) {
+        errors.push('  --sdk-version allowed values: Up to 40 numeric and . characters');
+      }
+
+      if (errors.length) {
+        console.error('ERROR: Invalid script arguments');
+
+        throw new Error(errors.join('\n'));
+      }
 
       // Generate sources from templates.
-      try {
-        createFiles(opts, PACKAGE_PATH);
-      } catch (err) {
-        console.error(err.message);
+      await createFiles(opts, PACKAGE_PATH);
+
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        console.error(`${err.message}\n`);
       }
-    } else {
-      console.error('Invalid script arguments');
 
       this.outputHelp();
     }
   });
-  /* eslint-enable max-len */
 
 program.parse();
