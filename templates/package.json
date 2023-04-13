@@ -4,7 +4,7 @@
   "description": "{{appDescription}}",
   "main": "src/app.js",
   "dependencies": {
-    "lambda-lambda-lambda": "latest"
+    "@lambda-lambda-lambda/router": "latest"
   },
   "devDependencies": {
     "{{sdkPackage}}": "latest",
