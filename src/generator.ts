@@ -49,9 +49,9 @@ export async function createFiles(appConfig: AppConfig, pkgPath: string) {
       if (isMiddleware(outFile)) {
         tplFile = `${templates}/AccessControlHeaders.js`;
       } else if (isRoute(outFile)) {
-        tplFile = `${templates}/route` + (isAsync ? '-async' : '') + '.js';
+        tplFile = `${templates}/route` + fileSuffix(isAsync) + '.js';
       } else if (isApp(outFile)) {
-        tplFile = `${templates}/app` + (isAsync ? '-async' : '') + '.js';
+        tplFile = `${templates}/app` + fileSuffix(isAsync) + '.js';
       } else {
         tplFile = `${templates}/${tplFile}`;
       }
@@ -157,4 +157,11 @@ function isRoute(path: string): boolean {
  */
 function isApp(path: string): boolean {
   return !!/\/src\/app/.test(path);
+}
+
+/**
+ * Return -async file suffix.
+ */
+function fileSuffix(add: boolean): string {
+  return add ? '-async' : '';
 }
