@@ -1,6 +1,6 @@
 'use strict';
 
-const Router = require('lambda-lambda-lambda');
+const Router = require('@lambda-lambda-lambda/router');
 const config = require('./config.json');
 
 const accessControlHeaders = require('./middleware/AccessControlHeaders');
