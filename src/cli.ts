@@ -56,11 +56,11 @@ program
         errors.push("  option '--prefix <path>' allows up to 100 alphanumeric and - characters");
       }
 
-      if (timeout && /^[\d]{1,2}$/.test(timeout)) {
+      if (timeout && !/^[\d]{1,2}$/.test(timeout)) {
         errors.push("  option '--timeout <number>' allows up to 2 numeric characters");
       }
 
-      if (sdkVersion && /^[a-zA-Z0-9]{1,40}$/.test(sdkVersion)) {
+      if (sdkVersion && !/^[a-zA-Z0-9]{1,40}$/.test(sdkVersion)) {
         errors.push("  option '--sdk-version <number>' allows up to 40 numeric and . characters");
       }
 
