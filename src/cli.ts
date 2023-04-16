@@ -9,19 +9,11 @@
  *  http://www.opensource.org/licenses/mit-license.php
  */
 
-import {Command}  from 'commander';
-import {execSync} from 'child_process';
+import {Command} from 'commander';
 
 // Local modules.
-import {AppConfig}   from './types';
 import {createFiles} from './generator';
-
-// Get global module $PATH
-const NODE_MODULES = (process.env.NODE_ENV !== 'development')
-  ? execSync('npm root --location=global --loglevel=error').toString().trim() : '';
-
-const PACKAGE_NAME = 'lambda-lambda-lambda/cli';
-const PACKAGE_PATH = (NODE_MODULES) ? `${NODE_MODULES}/${PACKAGE_NAME}` : '.';
+import {AppConfig}   from './types';
 
 // Process CLI options.
 const program = new Command();
@@ -71,7 +63,7 @@ program
       }
 
       // Generate sources from templates.
-      await createFiles(opts, PACKAGE_PATH);
+      await createFiles(opts);
 
     } catch (err: unknown) {
       if (err instanceof Error) {

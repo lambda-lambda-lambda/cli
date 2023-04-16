@@ -8,6 +8,7 @@
  */
 
 import {camelCase, paramCase, pascalCase} from 'change-case';
+import {execSync}                         from 'child_process';
 import {renderFile}                       from 'template-file';
 
 import * as fs   from 'fs';
@@ -19,8 +20,8 @@ import {AppConfig, TemplateVars} from './types';
 /**
  * Generate app sources from templates.
  */
-export async function createFiles(appConfig: AppConfig, pkgPath: string) {
-  const templates = `${pkgPath}/templates`;
+export async function createFiles(appConfig: AppConfig) {
+  const templates = getTemplatePath();
   const manifest  = `${templates}/MANIFEST`;
 
   const vars: TemplateVars = {
@@ -73,8 +74,8 @@ export async function createFiles(appConfig: AppConfig, pkgPath: string) {
 /**
  * Generate file sources from a template.
  */
-export async function createFile(name: string, extPath: string, outPath: string) {
-  const templates = `${extPath}/templates`;
+export async function createFile(name: string, outPath: string) {
+  const templates = getTemplatePath();
 
   let resPath: string = getResourcePath(outPath);
   resPath = (resPath) ? `${resPath}/` : '';
@@ -122,6 +123,16 @@ function getFsPath(files: string[], cmpFile: string): string | void {
       }
     }
   }
+}
+
+/**
+ * Return global templates source path.
+ */
+function getTemplatePath(): string {
+  const moduleLib = (process.env.NODE_ENV !== 'development')
+    ? execSync('npm root --location=global --loglevel=error').toString().trim() : '';
+
+  return moduleLib ? `${moduleLib}/lambda-lambda-lambda/cli/templates` : './templates';
 }
 
 /**
