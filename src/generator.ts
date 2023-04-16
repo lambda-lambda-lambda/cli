@@ -132,7 +132,7 @@ function getTemplatePath(): string {
   const moduleLib = (process.env.NODE_ENV !== 'development')
     ? execSync('npm root --location=global --loglevel=error').toString().trim() : '';
 
-  return moduleLib ? `${moduleLib}/lambda-lambda-lambda/cli/templates` : './templates';
+  return moduleLib ? `${moduleLib}/@lambda-lambda-lambda/cli/templates` : './templates';
 }
 
 /**
