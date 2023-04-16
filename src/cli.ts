@@ -56,14 +56,19 @@ program
         errors.push("  option '--sdk-version <number>' allows up to 40 numeric and . characters");
       }
 
-      if (errors.length) {
-        console.error('error: Invalid script arguments');
+      if (process.argv.length > 2) {
+        if (errors.length) {
+          console.error('error: Invalid script arguments');
 
-        throw new Error(errors.join('\n'));
+          throw new Error(errors.join('\n'));
+        }
+
+        // Generate sources from templates.
+        await createFiles(opts);
+
+      } else {
+        throw 'Missing script arguments';
       }
-
-      // Generate sources from templates.
-      await createFiles(opts);
 
     } catch (err: unknown) {
       if (err instanceof Error) {
