@@ -8,9 +8,15 @@ Command-line tool to create a new L³ application.
 
 - [Node.js](https://nodejs.org)
 
+## Installation
+
+Install the command-line utility using [NPM](https://npmjs.com).
+
+    $ npm install -g @lambda-lambda-lambda/cli
+
 ## Usage
 
-    Usage: cli [options]
+    Usage: lambda-lambda-lambda [options]
 
     Options:
     --name <value>          Application name (Example: restfulApiHandler)
