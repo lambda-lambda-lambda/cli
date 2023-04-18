@@ -3,4 +3,5 @@
 .eslintrc
 .gitattributes
 src
+test
 tsconfig.json
