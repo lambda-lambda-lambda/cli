@@ -66,6 +66,8 @@ program
         // Generate sources from templates.
         await createFiles(opts, process.cwd());
 
+        console.log('Created application sources');
+
       } else {
         throw 'Missing script arguments';
       }

@@ -67,8 +67,6 @@ export async function createFiles(appConfig: AppConfig, outPath: string) {
       fs.writeFileSync(outFile, content, 'utf8');
     }
   }
-
-  console.log('Created application sources');
 }
 
 /**
