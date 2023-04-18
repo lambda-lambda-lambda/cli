@@ -43,6 +43,10 @@ Run [ESLint](https://eslint.org/) on project sources:
 
     $ npm run lint
 
+Run [Mocha](https://mochajs.org) integration tests:
+
+    $ npm run test
+
 ## Contributions
 
 If you fix a bug, or have a code you want to contribute, please send a pull-request with your changes. (Note: Before committing your code please ensure that you are following the [TypeScript style guide](https://github.com/basarat/typescript-book/blob/master/docs/styleguide/styleguide.md))
