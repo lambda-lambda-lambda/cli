@@ -80,7 +80,7 @@ describe('CLI', function() {
  * Test Commander options in child process.
  */
 function testOption(vals, callback) {
-  const file = path.resolve('dist/cli.js');
+  const file = path.resolve('index.js');
   const args = vals.join(' ');
 
   exec(`node '${file}' ${args}`, callback);
