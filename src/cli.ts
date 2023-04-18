@@ -64,7 +64,7 @@ program
         }
 
         // Generate sources from templates.
-        await createFiles(opts);
+        await createFiles(opts, process.cwd());
 
       } else {
         throw 'Missing script arguments';

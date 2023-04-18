@@ -20,7 +20,7 @@ import {AppConfig, TemplateVars} from './types';
 /**
  * Generate app sources from templates.
  */
-export async function createFiles(appConfig: AppConfig) {
+export async function createFiles(appConfig: AppConfig, outPath: string) {
   const templates = getTemplatePath();
   const manifest  = `${templates}/MANIFEST`;
 
@@ -39,7 +39,7 @@ export async function createFiles(appConfig: AppConfig) {
   const tplFiles: string[] = fs.readdirSync(templates);
 
   for (let tplFile of tplFiles) {
-    let outFile: string | void = getFsPath(manFiles, tplFile);
+    let outFile: string | void = getFsPath(manFiles, tplFile, outPath);
 
     if (outFile) {
       const outDir: string = path.dirname(outFile);
@@ -81,7 +81,7 @@ export async function createFile(name: string, outPath: string) {
   resPath = (resPath) ? `${resPath}/` : '';
 
   const vars: TemplateVars = {
-    routePath: `${getAppPrefix()}/${resPath}${name.toLowerCase()}`
+    routePath: `${getAppPrefix(outPath)}/${resPath}${name.toLowerCase()}`
   };
 
   const outFile = `${outPath}/${pascalCase(name)}.js`;
@@ -98,8 +98,8 @@ export async function createFile(name: string, outPath: string) {
 /**
  * Return configured application prefix.
  */
-function getAppPrefix(): string | void {
-  const files = require('find').fileSync('config.json', getWorkspace());
+function getAppPrefix(outPath: string): string | void {
+  const files = require('find').fileSync('config.json', outPath);
 
   if (files) {
     return JSON.parse(fs.readFileSync(files[0], 'utf8')).router.prefix;
@@ -111,9 +111,7 @@ function getAppPrefix(): string | void {
 /**
  * Return output path for a given file.
  */
-function getFsPath(files: string[], cmpFile: string): string | void {
-  const outPath = getWorkspace();
-
+function getFsPath(files: string[], cmpFile: string, outPath: string): string | void {
   if (outPath) {
     for (const file of files) {
       const regex = new RegExp(`\/${path.parse(cmpFile).name}`);
@@ -140,13 +138,6 @@ function getTemplatePath(): string {
  */
 function getResourcePath(value: string): string {
   return value.replace(/^.*\/src\/(?:middleware|routes)\/?(.*)?$/, '$1');
-}
-
-/**
- * Return the Workspace root path.
- */
-function getWorkspace(): string {
-  return process.cwd();
 }
 
 /**
