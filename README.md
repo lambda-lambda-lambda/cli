@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/@lambda-lambda-lambda%2Fcli.svg)](https://badge.fury.io/js/@lambda-lambda-lambda%2Fcli) [![](https://img.shields.io/npm/dm/@lambda-lambda-lambda/cli.svg)](https://www.npmjs.com/package/@lambda-lambda-lambda/cli)
 
-Command-line tool to create a new L³ application.
+Command-line tool to create a new [L³](https://github.com/lambda-lambda-lambda) application.
 
 ## Dependencies
 
