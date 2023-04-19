@@ -2,6 +2,7 @@
 
 const chai = require('chai');
 const exec = require('child_process').exec;
+const fs   = require('fs');
 const path = require('path');
 
 const expect = chai.expect;
@@ -74,7 +75,28 @@ describe('CLI', function() {
       });
     });
   });
+
+  describe('generator', function() {
+    before(() => cleanUp());
+    after(() => cleanUp());
+
+    it('should not return error', function(done) {
+      testOption(['--name testHandler', "--description 'Test'"], function(stdout) {
+        expect(stdout).to.be.null;
+        done();
+      });
+    });
+  });
 });
+
+/**
+ * Clean up test project output.
+ */
+function cleanUp() {
+  const dir = `${process.cwd()}/test-handler`;
+
+  fs.existsSync(dir) && fs.rmSync(dir, {recursive: true});
+}
 
 /**
  * Test Commander options in child process.
