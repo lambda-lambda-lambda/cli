@@ -72,14 +72,14 @@ export async function createFiles(appConfig: AppConfig, outPath: string) {
 /**
  * Generate file sources from a template.
  */
-export async function createFile(name: string, outPath: string) {
+export async function createFile(name: string, outPath: string, basePath: string) {
   const templates = getTemplatePath();
 
   let resPath: string = getResourcePath(outPath);
   resPath = (resPath) ? `${resPath}/` : '';
 
   const vars: TemplateVars = {
-    routePath: `${getAppPrefix(outPath)}/${resPath}${name.toLowerCase()}`
+    routePath: `${getAppPrefix(basePath)}/${resPath}${name.toLowerCase()}`
   };
 
   const outFile = `${outPath}/${pascalCase(name)}.js`;
@@ -96,8 +96,8 @@ export async function createFile(name: string, outPath: string) {
 /**
  * Return configured application prefix.
  */
-function getAppPrefix(outPath: string): string | void {
-  const files = require('find').fileSync('config.json', outPath);
+function getAppPrefix(basePath: string): string | void {
+  const files = require('find').fileSync('config.json', basePath);
 
   if (files) {
     return JSON.parse(fs.readFileSync(files[0], 'utf8')).router.prefix;
