@@ -1,6 +1,6 @@
 'use strict';
 
-const config = require('../config.json');
+const config = require(`${APP_ROOT}/config.json`);
 
 /**
  * Middleware to send Access-Control-* headers.

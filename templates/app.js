@@ -1,9 +1,9 @@
 'use strict';
 
 const Router = require('@lambda-lambda-lambda/router');
-const config = require('./config.json');
+const config = require(`${APP_ROOT}/config.json`);
 
-const accessControlHeaders = require('./middleware/AccessControlHeaders');
+const accessControlHeaders = require(`${APP_ROOT}/middleware/AccessControlHeaders`);
 
 /**
  * @see AWS::Serverless::Function
