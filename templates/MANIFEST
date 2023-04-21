@@ -5,13 +5,13 @@
 {{pkgName}}/{{appName}}/.npmignore
 {{pkgName}}/{{appName}}/Makefile
 {{pkgName}}/{{appName}}/package.json
-{{pkgName}}/{{appName}}/swagger.json
 {{pkgName}}/{{appName}}/src/routes/Example.js
 {{pkgName}}/{{appName}}/src/middleware/AccessControlHeaders.js
 {{pkgName}}/{{appName}}/src/app-async.js
 {{pkgName}}/{{appName}}/src/app.js
 {{pkgName}}/{{appName}}/src/config.json
 {{pkgName}}/{{appName}}/src/openapi.js
+{{pkgName}}/{{appName}}/src/swagger.json
 {{pkgName}}/{{appName}}/test/.gitkeep
 {{pkgName}}/.vscode/extensions.json
 {{pkgName}}/.vscode/settings.json
