@@ -19,8 +19,10 @@ import {AppConfig}   from './types';
 const program = new Command();
 
 program
-  .usage('[options]')
+  .usage('create [options]')
 
+  .command('create')
+  .description('Create a new L³ application.')
   .option('--name <value>', 'Application name (Example: restfulApiHandler)')
   .option('--description <value>', 'Description')
   .option('--prefix <path>', 'Request prefix (Example: /api)', '/')

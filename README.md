@@ -16,7 +16,7 @@ Install the command-line utility using [NPM](https://npmjs.com).
 
 ## Usage
 
-    Usage: lambda-lambda-lambda [options]
+    Usage: lambda-lambda-lambda create [options]
 
     Options:
     --name <value>          Application name (Example: restfulApiHandler)

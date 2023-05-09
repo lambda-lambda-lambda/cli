@@ -12,7 +12,7 @@ describe('CLI', function() {
     describe('--name', function() {
       describe('missing value', function() {
         it('should return error', function(done) {
-          testOption(['--name'], function(stdout) {
+          testOption(['create', '--name'], function(stdout) {
             expect(stdout).to.match(/error: option '--name <value>' argument missing/);
             done();
           });
@@ -23,7 +23,7 @@ describe('CLI', function() {
     describe('--description', function() {
       describe('missing value', function() {
         it('should return error', function(done) {
-          testOption(['--description'], function(stdout) {
+          testOption(['create', '--description'], function(stdout) {
             expect(stdout).to.match(/error: option '--description <value>' argument missing/);
             done();
           });
@@ -34,7 +34,7 @@ describe('CLI', function() {
     describe('--prefix', function() {
       describe('missing value', function() {
         it('should not return error', function(done) {
-          testOption(['--prefix'], function(stdout) {
+          testOption(['create', '--prefix'], function(stdout) {
             expect(stdout).to.not.match(/error: option '--prefix <value>' argument missing/);
             done();
           });
@@ -45,7 +45,7 @@ describe('CLI', function() {
     describe('--timeout', function() {
       describe('missing value', function() {
         it('should not return error', function(done) {
-          testOption(['--timeout'], function(stdout) {
+          testOption(['create', '--timeout'], function(stdout) {
             expect(stdout).to.not.match(/error: option '--timeout <value>' argument missing/);
             done();
           });
@@ -56,7 +56,7 @@ describe('CLI', function() {
     describe('--sdk-version', function() {
       describe('missing value', function() {
         it('should not return error', function(done) {
-          testOption(['--sdk-version'], function(stdout) {
+          testOption(['create', '--sdk-version'], function(stdout) {
             expect(stdout).to.not.match(/error: option '--sdk-version <value>' argument missing/);
             done();
           });
@@ -67,7 +67,7 @@ describe('CLI', function() {
     describe('--asynchronous', function() {
       describe('missing value', function() {
         it('should not return error', function(done) {
-          testOption(['--asynchronous'], function(stdout) {
+          testOption(['create', '--asynchronous'], function(stdout) {
             expect(stdout).to.not.match(/error: option '--asynchronous <value>' argument missing/);
             done();
           });
@@ -81,7 +81,7 @@ describe('CLI', function() {
     after(() => cleanUp());
 
     it('should not return error', function(done) {
-      testOption(['--name testHandler', "--description 'Test'"], function(stdout) {
+      testOption(['create', '--name testHandler', "--description 'Test'"], function(stdout) {
         expect(stdout).to.be.null;
         done();
       });
