@@ -19,7 +19,7 @@ import {AppConfig}   from './types';
 const program = new Command();
 
 program
-  .usage('create [options]')
+  .usage('[command] [options]')
 
   .command('create')
   .description('Create a new L³ application.')
@@ -73,6 +73,38 @@ program
       } else {
         throw 'Missing script arguments';
       }
+
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        console.error(`${err.message}\n`);
+      }
+
+      this.outputHelp();
+    }
+  });
+
+program
+  .command('install')
+  .description('Install L³ middleware package.')
+  .argument('<PackageName>', 'Package name (Example: BasicAuthHandler)')
+
+  .action(async function(this: any, name: string) {
+    const errors = [];
+
+    try {
+
+      // Validate argument values.
+      if (name && !/^[a-zA-Z0-9]{1,40}$/.test(name) || !name) {
+        errors.push('  allows up to 40 alphanumeric characters');
+      }
+
+      if (errors.length) {
+        console.error('error: Invalid script arguments');
+
+        throw new Error(errors.join('\n'));
+      }
+
+      console.log('Installed package source');
 
     } catch (err: unknown) {
       if (err instanceof Error) {

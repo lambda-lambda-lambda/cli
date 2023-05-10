@@ -16,6 +16,8 @@ Install the command-line utility using [NPM](https://npmjs.com).
 
 ## Usage
 
+### Create a new L³ application
+
     Usage: lambda-lambda-lambda create [options]
 
     Options:
@@ -25,6 +27,16 @@ Install the command-line utility using [NPM](https://npmjs.com).
     --timeout <number>      Function timeout (in seconds) (default: "15")
     --sdk-version <number>  AWS SDK for JavaScript version (default: "2")
     --asynchronous          Use asynchronous handler? (default: false)
+    -h, --help              display help for command
+
+### Install L³ middleware package
+
+    Usage: lambda-lambda-lambda install [options] <PackageName>
+
+    Arguments:
+      PackageName           Package name (Example: BasicAuthHandler)
+
+    Options:
     -h, --help              display help for command
 
 ## Developers
