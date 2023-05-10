@@ -76,10 +76,10 @@ program
 
     } catch (err: unknown) {
       if (err instanceof Error) {
-        console.error(`${err.message}\n`);
+        console.error(`error: ${err.message}\n`);
+      } else {
+        this.outputHelp();
       }
-
-      this.outputHelp();
     }
   });
 
@@ -108,10 +108,10 @@ program
 
     } catch (err: unknown) {
       if (err instanceof Error) {
-        console.error(`${err.message}\n`);
+        console.error(`error: ${err.message}\n`);
+      } else {
+        this.outputHelp();
       }
-
-      this.outputHelp();
     }
   });
 
