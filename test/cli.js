@@ -7,6 +7,9 @@ const path = require('path');
 
 const expect = chai.expect;
 
+// Command-line script.
+const script = path.resolve('index.js');
+
 describe('CLI', function() {
   describe('create', function() {
     describe('options', function() {
@@ -82,8 +85,8 @@ describe('CLI', function() {
       after(() => cleanUp());
 
       it('should not return error', function(done) {
-        testOption(['create', '--name testHandler', "--description 'Test'"], function(stdout) {
-          expect(stdout).to.be.null;
+        testCommand(['create', '--name testHandler', "--description 'Test'"], function(stdout) {
+          expect(stdout).to.be.empty;
           done();
         });
       });
@@ -114,11 +117,21 @@ function cleanUp() {
 }
 
 /**
+ * Test Commander command in child process.
+ */
+function testCommand(vals, callback) {
+  const args = vals.join(' ');
+  const cmd  = `node '${script}' ${args}`;
+
+  exec(cmd, (error, stdout, stderr) => callback(error || stderr));
+}
+
+/**
  * Test Commander options in child process.
  */
 function testOption(vals, callback) {
-  const file = path.resolve('index.js');
   const args = vals.join(' ');
+  const cmd  = `node '${script}' ${args}`;
 
-  exec(`node '${file}' ${args}`, callback);
+  exec(cmd, callback);
 }
