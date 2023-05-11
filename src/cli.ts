@@ -13,6 +13,7 @@ import {Command} from 'commander';
 
 // Local modules.
 import {createFiles} from './generator';
+import {addPackage}  from './installer';
 import {AppConfig}   from './types';
 
 // Process CLI options.
@@ -103,6 +104,9 @@ program
 
         throw new Error(errors.join('\n'));
       }
+
+      // Install package sources.
+      await addPackage(name);
 
       console.log('Installed package source');
 

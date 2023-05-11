@@ -82,12 +82,13 @@ describe('CLI', function() {
 
     describe('generator', function() {
       before(() => cleanUp());
-      after(() => cleanUp());
 
-      it('should not return error', function(done) {
-        testCommand(['create', '--name testHandler', "--description 'Test'"], function(stdout) {
-          expect(stdout).to.be.empty;
-          done();
+      describe('success', function() {
+        it('should not return error', function(done) {
+          testCommand(['create', '--name testHandler', "--description 'Test'"], function(stdout) {
+            expect(stdout).to.be.empty;
+            done();
+          });
         });
       });
     });
@@ -101,6 +102,37 @@ describe('CLI', function() {
             expect(stdout).to.match(/error: missing required argument 'PackageName'/);
             done();
           });
+        });
+      });
+    });
+
+    describe('installer', function() {
+      after(() => cleanUp());
+
+      describe('invalid directory', function() {
+        it('should return error', function(done) {
+          testCommand(['install', 'PackageName'], function(stdout) {
+            expect(stdout).to.match(/error: Command must be executed in APP_ROOT/);
+            done();
+          });
+        });
+      });
+
+      describe('invalid package', function() {
+        it('should not return error', function(done) {
+          testCommand(['install', 'PackageName'], function(stdout) {
+            expect(stdout).to.match(/error: Package name 'PackageName' not found/);
+            done();
+          }, 'test-handler/testHandler');
+        });
+      });
+
+      describe('success', function() {
+        it('should not return error', function(done) {
+          testCommand(['install', 'BasicAuthHandler'], function(stdout) {
+            expect(stdout).to.be.empty;
+            done();
+          }, 'test-handler/testHandler');
         });
       });
     });
@@ -119,11 +151,11 @@ function cleanUp() {
 /**
  * Test Commander command in child process.
  */
-function testCommand(vals, callback) {
+function testCommand(vals, callback, cwd) {
   const args = vals.join(' ');
   const cmd  = `node '${script}' ${args}`;
 
-  exec(cmd, (error, stdout, stderr) => callback(error || stderr));
+  exec(cmd, {cwd}, (error, stdout, stderr) => callback(error || stderr));
 }
 
 /**
