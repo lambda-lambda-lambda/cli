@@ -125,10 +125,10 @@ function getFsPath(files: string[], cmpFile: string, outPath: string): string | 
  * Return global templates source path.
  */
 function getTemplatePath(): string {
-  const moduleLib = (process.env.NODE_ENV !== 'development')
+  const moduleLib = (process.env.NODE_ENV === 'production')
     ? execSync('npm root --location=global --loglevel=error').toString().trim() : '';
 
-  return moduleLib ? `${moduleLib}/@lambda-lambda-lambda/cli/templates` : './templates';
+  return moduleLib ? `${moduleLib}/@lambda-lambda-lambda/cli/templates` : `${__dirname}/../templates`;
 }
 
 /**

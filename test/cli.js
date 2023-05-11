@@ -3,14 +3,21 @@
 const chai = require('chai');
 const exec = require('child_process').exec;
 const fs   = require('fs');
+const os   = require('os');
 const path = require('path');
 
 const expect = chai.expect;
+
+const tmpDir = path.resolve(os.tmpdir());
+const outDir = `${tmpDir}/lambda-lambda-lambda`;
 
 // Command-line script.
 const script = path.resolve('index.js');
 
 describe('CLI', function() {
+  before(() => setUp());
+  after(() => tearDown());
+
   describe('create', function() {
     describe('options', function() {
       describe('--name', function() {
@@ -81,14 +88,12 @@ describe('CLI', function() {
     });
 
     describe('generator', function() {
-      before(() => cleanUp());
-
       describe('success', function() {
         it('should not return error', function(done) {
           testCommand(['create', '--name testHandler', "--description 'Test'"], function(stdout) {
             expect(stdout).to.be.empty;
             done();
-          });
+          }, outDir);
         });
       });
     });
@@ -107,8 +112,6 @@ describe('CLI', function() {
     });
 
     describe('installer', function() {
-      after(() => cleanUp());
-
       describe('invalid directory', function() {
         it('should return error', function(done) {
           testCommand(['install', 'PackageName'], function(stdout) {
@@ -119,11 +122,11 @@ describe('CLI', function() {
       });
 
       describe('invalid package', function() {
-        it('should not return error', function(done) {
+        it('should return error', function(done) {
           testCommand(['install', 'PackageName'], function(stdout) {
             expect(stdout).to.match(/error: Package name 'PackageName' not found/);
             done();
-          }, 'test-handler/testHandler');
+          }, `${outDir}/test-handler/testHandler`);
         });
       });
 
@@ -132,7 +135,7 @@ describe('CLI', function() {
           testCommand(['install', 'BasicAuthHandler'], function(stdout) {
             expect(stdout).to.be.empty;
             done();
-          }, 'test-handler/testHandler');
+          }, `${outDir}/test-handler/testHandler`);
         });
       });
     });
@@ -140,18 +143,23 @@ describe('CLI', function() {
 });
 
 /**
- * Clean up test project output.
+ * Create test output directory.
  */
-function cleanUp() {
-  const dir = `${process.cwd()}/test-handler`;
+function setUp() {
+  fs.mkdirSync(outDir, {recursive: true});
+}
 
-  fs.existsSync(dir) && fs.rmSync(dir, {recursive: true});
+/**
+ * Remove test output directory.
+ */
+function tearDown() {
+  fs.existsSync(outDir) && fs.rmSync(outDir, {recursive: true});
 }
 
 /**
  * Test Commander command in child process.
  */
-function testCommand(vals, callback, cwd) {
+function testCommand(vals, callback, cwd = outDir) {
   const args = vals.join(' ');
   const cmd  = `node '${script}' ${args}`;
 
