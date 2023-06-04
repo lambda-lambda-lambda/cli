@@ -12,13 +12,14 @@ import fetch        from 'node-fetch';
 
 import * as fs from 'fs';
 
-// Github RAW content URL.
-const REPO_URL = 'https://raw.githubusercontent.com/lambda-lambda-lambda/middleware/master';
+// Github repository URLs.
+const REPO_CONTENT_URL = 'https://raw.githubusercontent.com/lambda-lambda-lambda/middleware/master';
+const REPO_PUBLIC_URL  = 'https://github.com/lambda-lambda-lambda/middleware/tree/master';
 
 /**
  * Install remote middleware
  */
-export async function addPackage(name: string) {
+export async function addPackage(name: string): Promise<string|undefined> {
   const cwd = process.cwd();
 
   if (!isAppRoot(cwd)) {
@@ -35,6 +36,8 @@ export async function addPackage(name: string) {
   const content = await getPackage(fileName);
   if (content) {
     fs.writeFileSync(outFile, content, 'utf8');
+
+    return `${REPO_PUBLIC_URL}/plugins/${name}/README.md`;
   }
 };
 
@@ -42,7 +45,7 @@ export async function addPackage(name: string) {
  * Fetch remote file; return text as string.
  */
 function getPackage(name: string): Promise<string> {
-  return fetch(`${REPO_URL}/plugins/${name}/src/plugin.js`)
+  return fetch(`${REPO_CONTENT_URL}/plugins/${name}/src/plugin.js`)
 
     // Handle errors.
     .then(response => {

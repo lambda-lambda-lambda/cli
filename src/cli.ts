@@ -106,9 +106,9 @@ program
       }
 
       // Install package sources.
-      await addPackage(name);
+      const output = await addPackage(name);
 
-      console.log('Installed package source');
+      console.log(`Installed package source:\n${output}`);
 
     } catch (err: unknown) {
       if (err instanceof Error) {
