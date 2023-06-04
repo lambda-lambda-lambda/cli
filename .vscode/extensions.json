@@ -2,7 +2,6 @@
   "recommendations": [
     "DavidAnson.vscode-markdownlint",
     "dbaeumer.vscode-eslint",
-    "donjayamanne.githistory",
-    "searKing.preview-vscode"
+    "donjayamanne.githistory"
   ]
 }
