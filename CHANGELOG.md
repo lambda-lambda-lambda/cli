@@ -15,3 +15,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 
 - Moved CLI command/options into respective groups.
 - Refactored getTemplatePath() - Travis ENOENT fix.
+
+## [0.2.1] - 2023-07-25
+
+## Updated
+
+- Replaced node Docker image w/ MSFT supported release.
+- templates: Removed VS Code Preview (use Built-in)
