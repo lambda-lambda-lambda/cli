@@ -29,7 +29,7 @@ Install the command-line utility using [NPM](https://npmjs.com).
     --asynchronous          Use asynchronous handler? (default: false)
     -h, --help              display help for command
 
-### Install L³ middleware package
+### Install [L³ middleware](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins) package
 
     Usage: lambda-lambda-lambda install [options] <PackageName>
 
