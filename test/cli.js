@@ -91,7 +91,7 @@ describe('CLI', function() {
       describe('success', function() {
         it('should not return error', function(done) {
           testCommand(['create', '--name testHandler', "--description 'Test'"], function(stdout) {
-            expect(stdout).to.be.empty;
+            expect(stdout).to.match(/Created application sources/);
             done();
           }, outDir);
         });
@@ -133,7 +133,7 @@ describe('CLI', function() {
       describe('success', function() {
         it('should not return error', function(done) {
           testCommand(['install', 'BasicAuthHandler'], function(stdout) {
-            expect(stdout).to.be.empty;
+            expect(stdout).to.match(/Installed plugin source/);
             done();
           }, `${outDir}/test-handler/testHandler`);
         });
@@ -163,7 +163,7 @@ function testCommand(vals, callback, cwd = outDir) {
   const args = vals.join(' ');
   const cmd  = `node '${script}' ${args}`;
 
-  exec(cmd, {cwd}, (error, stdout, stderr) => callback(error || stderr));
+  exec(cmd, {cwd}, (error, stdout, stderr) => callback(stdout || error || stderr));
 }
 
 /**
