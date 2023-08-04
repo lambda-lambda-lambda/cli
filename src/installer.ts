@@ -52,7 +52,7 @@ function getPackage(name: string): Promise<string> {
       const {status} = response;
 
       if ([404, 500].includes(status)) {
-        throw new Error(`Package name '${name}' not found`);
+        throw new Error(`Plugin name '${name}' not found`);
       }
 
       return response;

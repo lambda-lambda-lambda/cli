@@ -104,7 +104,7 @@ describe('CLI', function() {
       describe('missing argument', function() {
         it('should return error', function(done) {
           testOption(['install'], function(stdout) {
-            expect(stdout).to.match(/error: missing required argument 'PackageName'/);
+            expect(stdout).to.match(/error: missing required argument 'PluginName'/);
             done();
           });
         });
@@ -114,7 +114,7 @@ describe('CLI', function() {
     describe('installer', function() {
       describe('invalid directory', function() {
         it('should return error', function(done) {
-          testCommand(['install', 'PackageName'], function(stdout) {
+          testCommand(['install', 'PluginName'], function(stdout) {
             expect(stdout).to.match(/error: Command must be executed in APP_ROOT/);
             done();
           });
@@ -123,8 +123,8 @@ describe('CLI', function() {
 
       describe('invalid package', function() {
         it('should return error', function(done) {
-          testCommand(['install', 'PackageName'], function(stdout) {
-            expect(stdout).to.match(/error: Package name 'PackageName' not found/);
+          testCommand(['install', 'PluginName'], function(stdout) {
+            expect(stdout).to.match(/error: Plugin name 'PluginName' not found/);
             done();
           }, `${outDir}/test-handler/testHandler`);
         });

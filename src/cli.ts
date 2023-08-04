@@ -86,8 +86,8 @@ program
 
 program
   .command('install')
-  .description('Install L³ middleware package.')
-  .argument('<PackageName>', 'Package name (Example: BasicAuthHandler)')
+  .description('Install L³ middleware plugin.')
+  .argument('<PluginName>', 'Plugin name (Example: BasicAuthHandler)')
 
   .action(async function(this: any, name: string) {
     const errors = [];
@@ -105,10 +105,10 @@ program
         throw new Error(errors.join('\n'));
       }
 
-      // Install package sources.
+      // Install plugin sources.
       const output = await addPackage(name);
 
-      console.log(`Installed package source:\n${output}`);
+      console.log(`Installed plugin source:\n${output}`);
 
     } catch (err: unknown) {
       if (err instanceof Error) {
