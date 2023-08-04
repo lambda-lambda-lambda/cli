@@ -34,7 +34,7 @@ Install the command-line utility using [NPM](https://npmjs.com).
     Usage: lambda-lambda-lambda install [options] <PluginName>
 
     Arguments:
-      PluginName            Plugin name (Example: BasicAuthHandler)
+      PluginName            Plugin name (Example: BasicAuthHandler), list packages if undefined
 
     Options:
     -h, --help              display help for command

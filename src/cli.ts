@@ -12,9 +12,9 @@
 import {Command} from 'commander';
 
 // Local modules.
-import {createFiles} from './generator';
-import {addPackage}  from './installer';
-import {AppConfig}   from './types';
+import {createFiles}               from './generator';
+import {addPackage, listPackages}  from './installer';
+import {AppConfig, ContentsPlugin} from './types';
 
 // Process CLI options.
 const program = new Command();
@@ -87,7 +87,7 @@ program
 program
   .command('install')
   .description('Install L³ middleware plugin.')
-  .argument('<PluginName>', 'Plugin name (Example: BasicAuthHandler)')
+  .argument('[PluginName]', 'Plugin name (Example: BasicAuthHandler), list available if undefined')
 
   .action(async function(this: any, name: string) {
     const errors = [];
@@ -95,7 +95,7 @@ program
     try {
 
       // Validate argument values.
-      if (name && !/^[a-zA-Z0-9]{1,40}$/.test(name) || !name) {
+      if (name && !/^[a-zA-Z0-9]{1,40}$/.test(name)) {
         errors.push('  allows up to 40 alphanumeric characters');
       }
 
@@ -105,10 +105,24 @@ program
         throw new Error(errors.join('\n'));
       }
 
-      // Install plugin sources.
-      const output = await addPackage(name);
+      if (name) {
 
-      console.log(`Installed plugin source:\n${output}`);
+        // Install plugin sources.
+        const output: string | undefined = await addPackage(name);
+
+        console.log(`Installed plugin source:\n${output}`);
+
+      } else {
+
+        // List available plugins.
+        const plugins = await listPackages();
+
+        const output = (plugins.map((plugin: ContentsPlugin) => {
+          return ` - ${plugin.name} (${plugin.html_url})\n`;
+        })).join('');
+
+        console.log(`Available plugins:\n${output}`);
+      }
 
     } catch (err: unknown) {
       if (err instanceof Error) {

@@ -26,3 +26,8 @@ export interface TemplateVars {
   cfResourceName?: string,
   routePath?: string
 }
+
+export interface ContentsPlugin {
+  name: string,
+  html_url: string
+}

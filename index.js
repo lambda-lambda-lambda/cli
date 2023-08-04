@@ -2,7 +2,7 @@
 
 require('./dist/cli');
 
-const {createFiles, createFile} = require('./dist/generator');
-const {addPackage}              = require('./dist/installer');
+const {createFiles, createFile}  = require('./dist/generator');
+const {addPackage, listPackages} = require('./dist/installer');
 
-module.exports = {createFiles, createFile, addPackage};
+module.exports = {createFiles, createFile, addPackage, listPackages};

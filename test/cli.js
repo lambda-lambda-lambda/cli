@@ -102,9 +102,9 @@ describe('CLI', function() {
   describe('install', function() {
     describe('argument', function() {
       describe('missing argument', function() {
-        it('should return error', function(done) {
-          testOption(['install'], function(stdout) {
-            expect(stdout).to.match(/error: missing required argument 'PluginName'/);
+        it('should return package list', function(done) {
+          testCommand(['install'], function(stdout) {
+            expect(stdout).to.match(/Available plugins/);
             done();
           });
         });

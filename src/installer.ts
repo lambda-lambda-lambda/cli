@@ -12,8 +12,12 @@ import fetch        from 'node-fetch';
 
 import * as fs from 'fs';
 
+// Local modules.
+import {ContentsPlugin} from './types';
+
 // Github repository URLs.
 const REPO_CONTENT_URL = 'https://raw.githubusercontent.com/lambda-lambda-lambda/middleware/master';
+const REPO_PLUGIN_URL  = 'https://api.github.com/repos/lambda-lambda-lambda/middleware/contents/plugins';
 const REPO_PUBLIC_URL  = 'https://github.com/lambda-lambda-lambda/middleware/tree/master';
 
 /**
@@ -40,6 +44,28 @@ export async function addPackage(name: string): Promise<string|undefined> {
     return `${REPO_PUBLIC_URL}/plugins/${name}/README.md`;
   }
 };
+
+/**
+ * Request plugin list from the package repo.
+ */
+export function listPackages(): Promise<ContentsPlugin[]> {
+  return fetch(REPO_PLUGIN_URL)
+
+    // Handle errors.
+    .then(response => {
+      const {status} = response;
+
+      if ([404, 500].includes(status)) {
+        throw new Error('Package list not available');
+      }
+
+      return response;
+    })
+
+    // Parse response.
+    .then(response => response.text())
+    .then(body     => JSON.parse(body));
+}
 
 /**
  * Fetch remote file; return text as string.
