@@ -22,3 +22,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 
 - Replaced node Docker image w/ MSFT supported release.
 - templates: Removed VS Code Preview (use Built-in)
+
+## [0.3.0] - 2023-08-09
+
+### Added
+
+- Added support for listing plugins.
+
+### Updated
+
+- Support PM2 `exec_mode` (fork/cluster)
