@@ -5,7 +5,7 @@ module.exports = {
     error_files: '.devcontainer/error.log',
     out_file: '.devcontainer/debug.log',
     watch: ['{{appName}}/src'],
-    watch_delay: 1000,
+    watch_delay: 5000,
     instances: 1,
     exec_mode: 'fork'
   }]
