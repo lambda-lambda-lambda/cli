@@ -15,7 +15,6 @@ Resources:
       Handler: app.handler
       Runtime: nodejs14.x
       AutoPublishAlias: Auto
-      Timeout: 5
       Role: !GetAtt LambdaEdgeRole.Arn
     Metadata:
       BuildMethod: makefile
