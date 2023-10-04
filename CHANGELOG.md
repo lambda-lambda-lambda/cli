@@ -48,8 +48,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 
 ### Fixed
 
-- Updated malformed value (use cwd)
+- Updated malformed value (use `cwd`)
 
 ### Updated
 
 - Removed duplicate / in routePath
+
+## [0.4.0] - 2023-10-04
+
+### Added
+
+- Support for configured `--runtime` option
+
+### Fixed
+
+- Updated PM2 logs output location
+- Removed directory from `watch`
