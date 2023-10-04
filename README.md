@@ -26,6 +26,7 @@ Install the command-line utility using [NPM](https://npmjs.com).
     --prefix <path>         Request prefix (Example: /api) (default: "/")
     --timeout <number>      Function timeout (in seconds) (default: "15")
     --sdk-version <number>  AWS SDK for JavaScript version (default: "2")
+    --runtime <string>      Node.js Lambda runtime identifier (default: "nodejs14.x")
     --asynchronous          Use asynchronous handler? (default: false)
     -h, --help              display help for command
 
@@ -38,6 +39,14 @@ Install the command-line utility using [NPM](https://npmjs.com).
 
     Options:
     -h, --help              display help for command
+
+## Supported runtimes
+
+| Name       | Identifier   | SDK | Deprecation (Phase 1) |
+|------------|--------------|-----|-----------------------|
+| Node.js 18 | `nodejs18.x` | 3   |                       |
+| Node.js 16 | `nodejs16.x` | 2   | Mar 11, 2024          |
+| Node.js 14 | `nodejs14.x` | 2   | Nov 27, 2023          |
 
 ## Developers
 

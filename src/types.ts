@@ -13,7 +13,8 @@ export interface AppConfig {
   asynchronous: string,
   prefix: string,
   timeout: string,
-  sdkVersion: string
+  sdkVersion: string,
+  runtime: string
 }
 
 export interface TemplateVars {
@@ -21,10 +22,12 @@ export interface TemplateVars {
   appName?: AppConfig['name'],
   appPrefix?: AppConfig['prefix'],
   appTimeout?: AppConfig['timeout'],
+  appRuntime?: AppConfig['runtime'],
   pkgName?: string,
   sdkPackage?: string,
+  runtime?: string,
   cfResourceName?: string,
-  routePath?: string
+  routePath: string
 }
 
 export interface ContentsPlugin {

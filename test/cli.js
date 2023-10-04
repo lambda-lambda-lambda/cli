@@ -75,6 +75,17 @@ describe('CLI', function() {
         });
       });
 
+      describe('--runtime', function() {
+        describe('missing value', function() {
+          it('should not return error', function(done) {
+            testOption(['create', '--runtime'], function(stdout) {
+              expect(stdout).to.not.match(/error: option '--runtime <value>' argument missing/);
+              done();
+            });
+          });
+        });
+      });
+
       describe('--asynchronous', function() {
         describe('missing value', function() {
           it('should not return error', function(done) {

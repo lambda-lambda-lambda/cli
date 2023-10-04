@@ -13,7 +13,7 @@ Resources:
       Description: {{appDescription}}
       CodeUri: ./{{appName}}
       Handler: app.handler
-      Runtime: nodejs14.x
+      Runtime: {{appRuntime}}
       AutoPublishAlias: Auto
       Role: !GetAtt LambdaEdgeRole.Arn
     Metadata:

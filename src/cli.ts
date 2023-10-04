@@ -29,10 +29,11 @@ program
   .option('--prefix <path>', 'Request prefix (Example: /api)', '/')
   .option('--timeout <number>', 'Function timeout (in seconds)', '15')
   .option('--sdk-version <number>', 'AWS SDK for JavaScript version', '2')
+  .option('--runtime <string>', 'Node.js Lambda runtime identifier', 'nodejs14.x')
   .option('--asynchronous', 'Use asynchronous handler?', false)
 
   .action(async function(this: any, opts: AppConfig) {
-    const {name, description, prefix, timeout, sdkVersion} = opts;
+    const {name, description, prefix, timeout, sdkVersion, runtime} = opts;
 
     const errors = [];
 
@@ -57,6 +58,10 @@ program
 
       if (sdkVersion && !/^[a-zA-Z0-9]{1,40}$/.test(sdkVersion)) {
         errors.push("  option '--sdk-version <number>' allows up to 40 numeric and . characters");
+      }
+
+      if (runtime && !/^nodejs\d{2}\.x$/.test(runtime)) {
+        errors.push("  option '--runtime <string>' required format nodejs[VERSION].x");
       }
 
       if (process.argv.length > 2) {

@@ -29,6 +29,7 @@ export async function createFiles(appConfig: AppConfig, outPath: string) {
     appName: camelCase(appConfig.name),
     appPrefix: appConfig.prefix,
     appTimeout: appConfig.timeout,
+    appRuntime: appConfig.runtime,
     pkgName: paramCase(appConfig.name),
     sdkPackage: (appConfig.sdkVersion === '2') ? 'aws-sdk-mock' : 'aws-sdk-client-mock',
     cfResourceName: pascalCase(appConfig.name),
