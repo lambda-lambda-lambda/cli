@@ -32,3 +32,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 ### Updated
 
 - Support PM2 `exec_mode` (fork/cluster)
+
+## [0.3.1] - 2023-10-03
+
+### Fixed
+
+- Workaround dotfile publishing issues
+
+### Updated
+
+- Prevent overlapping tasks (watch_delay)
+- Removed globally scoped override
