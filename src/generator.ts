@@ -27,12 +27,12 @@ export async function createFiles(appConfig: AppConfig, outPath: string) {
   const vars: TemplateVars = {
     appDescription: appConfig.description,
     appName: camelCase(appConfig.name),
-    appPrefix: appConfig.prefix   || '/',
-    appTimeout: appConfig.timeout || '3',
+    appPrefix: appConfig.prefix,
+    appTimeout: appConfig.timeout,
     pkgName: paramCase(appConfig.name),
     sdkPackage: (appConfig.sdkVersion === '2') ? 'aws-sdk-mock' : 'aws-sdk-client-mock',
     cfResourceName: pascalCase(appConfig.name),
-    routePath: `${appConfig.prefix}/example`
+    routePath: ((appConfig.prefix !== '/') ? appConfig.prefix : '') + '/example'
   };
 
   const manFiles: string[] = (await renderFile(manifest, {...vars})).split(/\r?\n/);
