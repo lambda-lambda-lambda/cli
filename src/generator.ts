@@ -110,7 +110,9 @@ function getAppPrefix(basePath: string): string | void {
  * Return output path for a given file.
  */
 function getFsPath(files: string[], cmpFile: string, outPath: string): string | void {
-  if (outPath) {
+  if (outPath && cmpFile && outPath) {
+    cmpFile = cmpFile.replace(/^\_/, '.');
+
     for (const file of files) {
       const regex = new RegExp(`\/${path.parse(cmpFile).name}`);
 
