@@ -45,5 +45,6 @@
   },
   "bin": {
     "lambda-lambda-lambda": "./dist/cli.js"
-  }
+  },
+  "types": "./dist/types.d.ts"
 }
