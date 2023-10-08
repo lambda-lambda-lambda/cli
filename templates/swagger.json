@@ -22,6 +22,14 @@
                   "type": "string"
                 }
               }
+            },
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "text/html"
+                }
+              }
             }
           }
         }

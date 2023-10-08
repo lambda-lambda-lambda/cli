@@ -20,6 +20,11 @@ module.exports = {
    *           text/html:
    *             schema:
    *               type: string
+   *         headers:
+   *           Content-Type:
+   *             schema:
+   *               type: string
+   *               example: text/html
    */
   index (req, res) {
     res.setHeader('Content-Type', 'text/html');
