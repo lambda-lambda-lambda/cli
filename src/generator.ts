@@ -33,7 +33,8 @@ export async function createFiles(appConfig: AppConfig, outPath: string) {
     pkgName: paramCase(appConfig.name),
     sdkPackage: (appConfig.sdkVersion === '2') ? 'aws-sdk-mock' : 'aws-sdk-client-mock',
     cfResourceName: pascalCase(appConfig.name),
-    routePath: ((appConfig.prefix !== '/') ? appConfig.prefix : '') + '/example'
+    routePath: ((appConfig.prefix !== '/') ? appConfig.prefix : '') + '/example',
+    nodeVersion: appConfig.runtime.replace(/[^0-9]/g, '')
   };
 
   const manFiles: string[] = (await renderFile(manifest, {...vars})).split(/\r?\n/);

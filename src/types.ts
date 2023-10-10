@@ -27,7 +27,8 @@ export interface TemplateVars {
   sdkPackage?: string,
   runtime?: string,
   cfResourceName?: string,
-  routePath: string
+  routePath: string,
+  nodeVersion?: string
 }
 
 export interface ContentsPlugin {
