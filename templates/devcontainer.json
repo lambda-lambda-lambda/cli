@@ -1,11 +1,16 @@
 {
   "name": "{{appName}}",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:0-18",
+  "image": "public.ecr.aws/lambda/nodejs:{{nodeVersion}}",
   "forwardPorts": [3000],
   // Mounting AWS config (Requires container rebuild)
   //"mounts": ["source=${localEnv:HOME}/.aws,target=/root/.aws,type=bind,consistency=cached"],
+  "workspaceMount": "source=${localWorkspaceFolder},target=/var/task,type=bind",
+  "workspaceFolder": "/var/task",
+  "containerEnv": {
+    "LAMBDA_TASK_ROOT": "${containerWorkspaceFolder}/{{appName}}/src"
+  },
   "updateContentCommand": "npm install --prefix ${containerWorkspaceFolder}/{{appName}} >/dev/null",
-  "postCreateCommand": "sudo apt -y update && sudo apt -y install python3-pip && pip install aws-sam-cli && npm install -g pm2",
+  "postCreateCommand": "npm install -g pm2",
   "postStartCommand": "pm2 start ${containerWorkspaceFolder}/.devcontainer/ecosystem.config.js",
   "customizations": {
     "vscode": {
