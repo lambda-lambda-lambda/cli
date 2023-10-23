@@ -2,6 +2,7 @@
 {{pkgName}}/.devcontainer/ecosystem.config.js
 {{pkgName}}/.eslintrc
 {{pkgName}}/.gitignore
+{{pkgName}}/.jsdocrc
 {{pkgName}}/{{appName}}/.npmignore
 {{pkgName}}/{{appName}}/Makefile
 {{pkgName}}/{{appName}}/package.json

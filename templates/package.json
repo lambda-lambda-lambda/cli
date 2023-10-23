@@ -15,7 +15,7 @@
   },
   "scripts": {
     "genapi": "swagger-jsdoc -d src/openapi.js -o src/swagger.json src/app.js 'src/routes/**/*.js'",
-    "gendoc": "jsdoc -d doc -r src",
+    "gendoc": "jsdoc -c .jsdocrc",
     "lint": "eslint src test"
   },
   "engines": {
