@@ -3,7 +3,7 @@
   "image": "public.ecr.aws/lambda/nodejs:{{nodeVersion}}",
   "forwardPorts": [3000],
   // Mounting AWS config (Requires container rebuild)
-  //"mounts": ["source=${localEnv:HOME}/.aws,target=/root/.aws,type=bind,consistency=cached"],
+  //"mounts": ["source=${localEnv:HOME}/.aws,target=/home/node/.aws,type=bind,consistency=cached"],
   "workspaceMount": "source=${localWorkspaceFolder},target=/var/task,type=bind",
   "workspaceFolder": "/var/task",
   "containerEnv": {
