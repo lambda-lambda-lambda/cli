@@ -64,3 +64,26 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 
 - Updated PM2 logs output location
 - Removed directory from `watch`
+
+## [0.5.0] - 2023-11-06
+
+### Added
+
+- Swagger headers schema in `@openapi`
+- `nodeVersion` template variable
+- `.jsdocrc` output template
+- Support for `--profile` arg in deploy script
+
+### Fixed
+
+- Updated AWS config access info
+- Updated node user mount location
+- Workaround `NODE_APP_INSTANCE` warnings
+- Revert - conflicting file renamed (.gitignore)
+
+### Updated
+
+- Replaced image with Lambda ECR base
+- Export types and related files during build
+- Package node engine to AWS supported (v18)
+- Upgraded devDependencies to latest
