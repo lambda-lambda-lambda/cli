@@ -25,7 +25,7 @@ Install the command-line utility using [NPM](https://npmjs.com).
     --description <value>   Description
     --prefix <path>         Request prefix (Example: /api) (default: "/")
     --timeout <number>      Function timeout (in seconds) (default: "15")
-    --sdk-version <number>  AWS SDK for JavaScript version (default: "2")
+    --sdk-version <number>  AWS SDK for JavaScript version (default: "3")
     --runtime <string>      Node.js Lambda runtime identifier (default: "nodejs14.x")
     --asynchronous          Use asynchronous handler? (default: false)
     -h, --help              display help for command
