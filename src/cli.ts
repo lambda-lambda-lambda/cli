@@ -57,7 +57,7 @@ program
       }
 
       if (sdkVersion && !/^[a-zA-Z0-9]{1,40}$/.test(sdkVersion)) {
-        errors.push("  option '--sdk-version <number>' allows up to 40 numeric and . characters");
+        errors.push("  option '--sdk-version <number>' allows up to 40 numeric characters");
       }
 
       if (runtime && !/^nodejs\d{2}\.x$/.test(runtime)) {
