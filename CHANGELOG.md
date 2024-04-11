@@ -87,3 +87,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 - Export types and related files during build
 - Package node engine to AWS supported (v18)
 - Upgraded devDependencies to latest
+
+## [0.5.1] - 2024-04-11
+
+### Updated
+
+- Deprecated AWS SDK v2 / nodejs18.x
+- Replaced Travis-CI with Github workflow
