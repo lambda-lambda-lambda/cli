@@ -29,7 +29,7 @@ program
   .option('--prefix <path>', 'Request prefix (Example: /api)', '/')
   .option('--timeout <number>', 'Function timeout (in seconds)', '15')
   .option('--sdk-version <number>', 'AWS SDK for JavaScript version', '3')
-  .option('--runtime <string>', 'Node.js Lambda runtime identifier', 'nodejs14.x')
+  .option('--runtime <string>', 'Node.js Lambda runtime identifier', 'nodejs18.x')
   .option('--asynchronous', 'Use asynchronous handler?', false)
 
   .action(async function(this: any, opts: AppConfig) {
