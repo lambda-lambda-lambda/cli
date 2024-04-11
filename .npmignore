@@ -1,7 +1,8 @@
 .devcontainer
-.vscode
+.github
 .eslintrc
 .gitattributes
+.vscode
 src
 test
 tsconfig.json
