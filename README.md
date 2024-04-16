@@ -44,9 +44,12 @@ Install the command-line utility using [NPM](https://npmjs.com).
 
 | Name       | Identifier   | SDK | Deprecation (Phase 1) |
 |------------|--------------|-----|-----------------------|
-| Node.js 18 | `nodejs18.x` | 3   |                       |
+| Node.js 20 | `nodejs20.x` | 3   |                       |
+| Node.js 18 | `nodejs18.x` | 3   | \*_See note below_    |
 | Node.js 16 | `nodejs16.x` | 2   | Mar 11, 2024          |
 | Node.js 14 | `nodejs14.x` | 2   | Nov 27, 2023          |
+
+(*) While this Node release is currently supported in AWS Lambda, the underlying [Dev Container](https://microsoft.github.io/code-with-engineering-playbook/developer-experience/devcontainers) is no longer [supported by VS Code](https://code.visualstudio.com/docs/remote/faq#_can-i-run-vs-code-server-on-older-linux-distributions) due to deprecated support older Linux build toolchains (`glibc >= 2.28` and `libstdc++ >= 3.4.2`).
 
 ## Developers
 
