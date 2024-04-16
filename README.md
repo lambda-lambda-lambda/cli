@@ -26,7 +26,7 @@ Install the command-line utility using [NPM](https://npmjs.com).
     --prefix <path>         Request prefix (Example: /api) (default: "/")
     --timeout <number>      Function timeout (in seconds) (default: "15")
     --sdk-version <number>  AWS SDK for JavaScript version (default: "3")
-    --runtime <string>      Node.js Lambda runtime identifier (default: "nodejs14.x")
+    --runtime <string>      Node.js Lambda runtime identifier (default: "nodejs20.x")
     --asynchronous          Use asynchronous handler? (default: false)
     -h, --help              display help for command
 
@@ -49,7 +49,15 @@ Install the command-line utility using [NPM](https://npmjs.com).
 | Node.js 16 | `nodejs16.x` | 2   | Mar 11, 2024          |
 | Node.js 14 | `nodejs14.x` | 2   | Nov 27, 2023          |
 
-(*) While this Node release is currently supported in AWS Lambda, the underlying [Dev Container](https://microsoft.github.io/code-with-engineering-playbook/developer-experience/devcontainers) is no longer [supported by VS Code](https://code.visualstudio.com/docs/remote/faq#_can-i-run-vs-code-server-on-older-linux-distributions) due to deprecated support older Linux build toolchains (`glibc >= 2.28` and `libstdc++ >= 3.4.2`).
+(*) While this Node release is currently supported in AWS Lambda, the underlying [VS Code Dev Container](https://microsoft.github.io/code-with-engineering-playbook/developer-experience/devcontainers) is no longer [supported by VS Code](https://code.visualstudio.com/docs/remote/faq#_can-i-run-vs-code-server-on-older-linux-distributions) due to deprecated support older Linux build toolchains (`glibc >= 2.28` and `libstdc++ >= 3.4.2`).
+
+If you need to support this release update the `devcontainer.json` image to:
+
+```
+{
+  "name": "restfulJsonApi",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:0-18",
+```
 
 ## Developers
 
