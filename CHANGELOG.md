@@ -94,3 +94,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 
 - Deprecated AWS SDK v2 / nodejs18.x
 - Replaced Travis-CI with Github workflow
+
+## [0.5.2] - 2024-04-15
+
+### Fixed
+
+- Dev Container, due to [VS Code Linux support](https://code.visualstudio.com/docs/remote/faq#_can-i-run-vs-code-server-on-older-linux-distributions) changes
