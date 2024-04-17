@@ -100,3 +100,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 ### Fixed
 
 - Dev Container, due to [VS Code Linux support](https://code.visualstudio.com/docs/remote/faq#_can-i-run-vs-code-server-on-older-linux-distributions) changes
+
+## [0.5.3] - 2024-04-17
+
+- Exported package TypeScript types (refactor)
+- Upgraded outdated dependencies
+- Updated copyright license year
