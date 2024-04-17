@@ -12,6 +12,9 @@ import fetch        from 'node-fetch';
 
 import * as fs from 'fs';
 
+// Local modules.
+import {ContentsPlugin} from '../index';
+
 // Github repository URLs.
 const REPO_CONTENT_URL = 'https://raw.githubusercontent.com/lambda-lambda-lambda/middleware/master';
 const REPO_PLUGIN_URL  = 'https://api.github.com/repos/lambda-lambda-lambda/middleware/contents/plugins';
