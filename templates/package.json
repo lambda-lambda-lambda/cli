@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "{{sdkPackage}}": "latest",
+    "clean-jsdoc-theme": "latest",
     "eslint": "latest",
     "jsdoc": "latest",
     "lambda-edge-server": "latest",
