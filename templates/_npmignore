@@ -1,3 +1,4 @@
 eslint.config.js
+jsdoc.json
 test/*
 README.md

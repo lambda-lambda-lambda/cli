@@ -1,10 +1,10 @@
 {{pkgName}}/.devcontainer/devcontainer.json
 {{pkgName}}/.devcontainer/ecosystem.config.js
 {{pkgName}}/.gitignore
-{{pkgName}}/.jsdocrc
 {{pkgName}}/{{appName}}/.npmignore
 {{pkgName}}/{{appName}}/Makefile
 {{pkgName}}/{{appName}}/eslint.config.js
+{{pkgName}}/{{appName}}/jsdoc.json
 {{pkgName}}/{{appName}}/package.json
 {{pkgName}}/{{appName}}/src/routes/Example.js
 {{pkgName}}/{{appName}}/src/middleware/AccessControlHeaders.js
