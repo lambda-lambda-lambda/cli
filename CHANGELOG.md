@@ -106,3 +106,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 - Exported package TypeScript types (refactor)
 - Upgraded outdated dependencies
 - Updated copyright license year
+
+## [0.6.0] - 2024-04-22
+
+- Renamed/relocated JSDoc config
+- Upgraded ESLint config to [flatconfig](https://eslint.org/blog/2022/08/new-config-system-part-2)
+- Updated devcontainer /mnt volume `$HOME` location
+- Replaced JSDoc template minami w/ [clean-jsdoc-theme](https://www.npmjs.com/package/clean-jsdoc-theme)
