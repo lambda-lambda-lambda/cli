@@ -11,7 +11,7 @@
 {{pkgName}}/{{appName}}/src/app-async.js
 {{pkgName}}/{{appName}}/src/app.js
 {{pkgName}}/{{appName}}/src/config.json
-{{pkgName}}/{{appName}}/src/openapi.js
+{{pkgName}}/{{appName}}/src/openapi.config.js
 {{pkgName}}/{{appName}}/src/swagger.json
 {{pkgName}}/{{appName}}/test/.gitkeep
 {{pkgName}}/.vscode/extensions.json
