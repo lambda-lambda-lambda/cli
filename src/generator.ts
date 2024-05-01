@@ -20,13 +20,13 @@ import {AppConfig, TemplateVars} from '../index';
 /**
  * Generate app sources from templates.
  */
-export async function createFiles(appConfig: AppConfig, outPath: string) {
+export async function createFiles(appConfig: AppConfig, outPath: string): Promise<void> {
   const templates = getTemplatePath();
   const manifest  = `${templates}/MANIFEST`;
 
   const vars: TemplateVars = {
-    appDescription: appConfig.description,
     appName: camelCase(appConfig.name),
+    appDescription: appConfig.description,
     appPrefix: appConfig.prefix,
     appTimeout: appConfig.timeout,
     appRuntime: appConfig.runtime,
@@ -72,9 +72,9 @@ export async function createFiles(appConfig: AppConfig, outPath: string) {
 }
 
 /**
- * Generate file sources from a template.
+ * Generate file source from a template.
  */
-export async function createFile(name: string, outPath: string, basePath: string) {
+export async function createFile(name: string, outPath: string, basePath: string): Promise<void> {
   const templates = getTemplatePath();
 
   let resPath: string = getResourcePath(outPath);

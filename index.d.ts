@@ -8,24 +8,23 @@
  */
 
 export interface AppConfig {
-  description: string,
   name: string,
-  asynchronous: string,
+  description: string,
   prefix: string,
+  asynchronous: string,
   timeout: string,
   sdkVersion: string,
   runtime: string
 }
 
 export interface TemplateVars {
-  appDescription?: AppConfig['description'],
   appName?: AppConfig['name'],
+  appDescription?: AppConfig['description'],
   appPrefix?: AppConfig['prefix'],
   appTimeout?: AppConfig['timeout'],
   appRuntime?: AppConfig['runtime'],
   pkgName?: string,
   sdkPackage?: string,
-  runtime?: string,
   cfResourceName?: string,
   routePath: string,
   nodeVersion?: string
