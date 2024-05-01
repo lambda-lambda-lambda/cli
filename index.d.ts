@@ -30,7 +30,7 @@ export interface TemplateVars {
   nodeVersion?: string
 }
 
-export interface ContentsPlugin {
+export interface PluginInfo {
   name: string,
   html_url: string
 }

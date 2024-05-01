@@ -13,7 +13,7 @@ import fetch        from 'node-fetch';
 import * as fs from 'fs';
 
 // Local modules.
-import {ContentsPlugin} from '../index';
+import {PluginInfo} from '../index';
 
 // Github repository URLs.
 const REPO_CONTENT_URL = 'https://raw.githubusercontent.com/lambda-lambda-lambda/middleware/master';
@@ -48,7 +48,7 @@ export async function addPackage(name: string): Promise<string|undefined> {
 /**
  * Request plugin list from the package repo.
  */
-export function listPackages(): Promise<ContentsPlugin[]> {
+export function listPackages(): Promise<PluginInfo[]> {
   return fetch(REPO_PLUGIN_URL)
 
     // Handle errors.

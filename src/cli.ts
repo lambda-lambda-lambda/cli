@@ -14,7 +14,7 @@ import {Command} from 'commander';
 // Local modules.
 import {createFiles}               from './generator';
 import {addPackage, listPackages}  from './installer';
-import {AppConfig, ContentsPlugin} from '../index';
+import {AppConfig, PluginInfo}     from '../index';
 
 // Process CLI options.
 const program = new Command();
@@ -122,7 +122,7 @@ program
         // List available plugins.
         const plugins = await listPackages();
 
-        const output = (plugins.map((plugin: ContentsPlugin) => {
+        const output = (plugins.map((plugin: PluginInfo) => {
           return ` - ${plugin.name} (${plugin.html_url})\n`;
         })).join('');
 
