@@ -2,6 +2,7 @@
 .eslintrc
 .gitattributes
 .vscode
+ISSUE_TEMPLATE.md
 src
 test
 tsconfig.json
