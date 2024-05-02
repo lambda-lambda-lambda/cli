@@ -113,3 +113,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 - Upgraded ESLint config to [flatconfig](https://eslint.org/blog/2022/08/new-config-system-part-2)
 - Updated devcontainer /mnt volume `$HOME` location
 - Replaced JSDoc template minami w/ [clean-jsdoc-theme](https://www.npmjs.com/package/clean-jsdoc-theme)
+
+## [0.6.1] - 2024-05-02
+
+- Renamed template output `openapi.js` to `openapi.config.js`
+- Prepwork for [DefinitelyTyped migration](https://github.com/lambda-lambda-lambda/cli/issues/2)
