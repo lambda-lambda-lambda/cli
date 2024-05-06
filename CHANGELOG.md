@@ -118,3 +118,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 
 - Renamed template output `openapi.js` to `openapi.config.js`
 - Prepwork for [DefinitelyTyped migration](https://github.com/lambda-lambda-lambda/cli/issues/2)
+
+## [0.6.2] - 2024-05-06
+
+- Override Docker base image (install missing bin)
+- Fixes microsoft/vscode-remote-release/issues/9856#issue-2279937211
