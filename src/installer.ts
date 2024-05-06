@@ -13,7 +13,7 @@ import fetch        from 'node-fetch';
 import * as fs from 'fs';
 
 // Local modules.
-import {PluginInfo} from '../index';
+import {PluginInfo} from '../types';
 
 // Github repository URLs.
 const REPO_CONTENT_URL = 'https://raw.githubusercontent.com/lambda-lambda-lambda/middleware/master';

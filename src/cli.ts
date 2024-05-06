@@ -14,7 +14,7 @@ import {Command} from 'commander';
 // Local modules.
 import {createFiles}               from './generator';
 import {addPackage, listPackages}  from './installer';
-import {AppConfig, PluginInfo}     from '../index';
+import {AppConfig, PluginInfo}     from '../types';
 
 // Process CLI options.
 const program = new Command();

@@ -15,7 +15,7 @@ import * as fs   from 'fs';
 import * as path from 'path';
 
 // Local modules
-import {AppConfig, TemplateVars} from '../index';
+import {AppConfig, TemplateVars} from '../types';
 
 /**
  * Generate app sources from templates.
