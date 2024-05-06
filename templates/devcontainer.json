@@ -1,6 +1,6 @@
 {
   "name": "{{appName}}",
-  "image": "public.ecr.aws/lambda/nodejs:{{nodeVersion}}",
+  "build": {"dockerfile": "Dockerfile"},
   "forwardPorts": [3000],
   // Mounting AWS config (Requires container rebuild)
   //"mounts": ["source=${localEnv:HOME}/.aws,target=/root/.aws,type=bind,consistency=cached"],

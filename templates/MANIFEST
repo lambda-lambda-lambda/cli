@@ -1,4 +1,5 @@
 {{pkgName}}/.devcontainer/devcontainer.json
+{{pkgName}}/.devcontainer/Dockerfile
 {{pkgName}}/.devcontainer/ecosystem.config.js
 {{pkgName}}/.gitignore
 {{pkgName}}/{{appName}}/.npmignore
