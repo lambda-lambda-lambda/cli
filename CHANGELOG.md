@@ -122,4 +122,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 ## [0.6.2] - 2024-05-06
 
 - Override Docker base image (install missing bin)
-- Fixes microsoft/vscode-remote-release/issues/9856#issue-2279937211
+  - Fixes microsoft/vscode-remote-release/issues/9856#issue-2279937211
+
+## [0.6.3] - 2024-05-08
+
+### Added
+
+- [SwaggerUIViewer](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/SwaggerUIViewer) middleware plugin
+
+### Updated
+
+- Renamed types declaration file.
+- Integrated [@lambda-lambda-lambda/types/cli](https://github.com/lambda-lambda-lambda/types)
+  - Info lambda-lambda-lambda/cli/issues/2#issue-2249209628
+- Redirect root requests to SwaggerUI
