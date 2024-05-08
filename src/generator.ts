@@ -15,7 +15,7 @@ import * as fs   from 'fs';
 import * as path from 'path';
 
 // Local modules
-import {AppConfig, TemplateVars} from '../types';
+import {AppConfig, TemplateVars} from '@lambda-lambda-lambda/types/cli';
 
 /**
  * Generate app sources from templates.

@@ -12,9 +12,9 @@
 import {Command} from 'commander';
 
 // Local modules.
-import {createFiles}               from './generator';
-import {addPackage, listPackages}  from './installer';
-import {AppConfig, PluginInfo}     from '../types';
+import {createFiles}              from './generator';
+import {addPackage, listPackages} from './installer';
+import {AppConfig, PluginInfo}    from '@lambda-lambda-lambda/types/cli';
 
 // Process CLI options.
 const program = new Command();
