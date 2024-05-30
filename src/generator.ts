@@ -45,8 +45,7 @@ export async function createFiles(appConfig: AppConfig, outPath: string): Promis
 
     if (outFile) {
       const outDir: string = path.dirname(outFile);
-
-      const isAsync: boolean = (appConfig.asynchronous === 'Yes');
+      const isAsync: boolean = (appConfig.asynchronous === true || appConfig.asynchronous === 'Yes');
 
       // Select template based on type.
       if (isMiddleware(outFile)) {
