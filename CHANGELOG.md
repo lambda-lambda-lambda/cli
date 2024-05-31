@@ -136,3 +136,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 - Integrated [@lambda-lambda-lambda/types/cli](https://github.com/lambda-lambda-lambda/types)
   - Info lambda-lambda-lambda/cli/issues/2#issue-2249209628
 - Redirect root requests to SwaggerUI
+
+## [0.6.4] - 2024-05-30
+
+### Updated
+
+- Prep deprecation of `asynchronous` Yes/No values ([VS Code extension integration artifact](https://github.com/lambda-lambda-lambda/vscode-extension/blob/master/src/extension.ts#L70))
+- Skip CLI args parser when imported.
+- Upgraded [@lambda-lambda-lambda/types](https://github.com/lambda-lambda-lambda) (0.0.2)
