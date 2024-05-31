@@ -49,7 +49,7 @@ export async function createFiles(appConfig: AppConfig, outPath: string): Promis
 
       // Select template based on type.
       if (isMiddleware(outFile)) {
-        tplFile = `${templates}/AccessControlHeaders.js`;
+        tplFile = `${templates}/${path.basename(outFile)}`;
       } else if (isRoute(outFile)) {
         tplFile = `${templates}/route` + fileSuffix(isAsync) + '.js';
       } else if (isApp(outFile)) {
