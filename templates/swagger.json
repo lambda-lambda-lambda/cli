@@ -15,7 +15,7 @@
     }
   ],
   "paths": {
-    "/api/example": {
+    "{{routePath}}": {
       "get": {
         "description": "Route description.",
         "responses": {
