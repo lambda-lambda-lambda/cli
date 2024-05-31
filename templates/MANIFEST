@@ -9,6 +9,7 @@
 {{pkgName}}/{{appName}}/package.json
 {{pkgName}}/{{appName}}/src/routes/Example.js
 {{pkgName}}/{{appName}}/src/middleware/AccessControlHeaders.js
+{{pkgName}}/{{appName}}/src/middleware/AppConfigPlugin.js
 {{pkgName}}/{{appName}}/src/middleware/SwaggerUIViewer.js
 {{pkgName}}/{{appName}}/src/app-async.js
 {{pkgName}}/{{appName}}/src/app.js

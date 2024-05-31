@@ -4,6 +4,7 @@ const Router = require('@lambda-lambda-lambda/router');
 const config = require(`${APP_ROOT}/config.json`);
 
 const accessControlHeaders = require(`${APP_ROOT}/middleware/AccessControlHeaders`);
+const appConfigPlugin      = require(`${APP_ROOT}/middleware/AppConfigPlugin`);
 const swaggerUIViewer      = require(`${APP_ROOT}/middleware/SwaggerUIViewer`);
 
 const swaggerJson = require(`${APP_ROOT}/swagger.json`);
@@ -19,13 +20,14 @@ exports.handler = async (event, context, callback) => {
 
   // Middleware (order is important).
   router.use(accessControlHeaders);
+  router.use(appConfigPlugin(config));
   router.use(swaggerUIViewer(swaggerJson));
 
   // Send root response.
   router.get('/', function(req, res) {
 
     // Redirect to Swagger viewer.
-    res.setHeader('Location', `/${config.router.prefix}/?swagger-ui=html`);
+    res.setHeader('Location', `${config.router.prefix}?swagger-ui=html`);
     res.status(301).send();
   });
 
