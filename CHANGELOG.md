@@ -144,3 +144,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 - Prep deprecation of `asynchronous` Yes/No values ([VS Code extension integration artifact](https://github.com/lambda-lambda-lambda/vscode-extension/blob/master/src/extension.ts#L70))
 - Skip CLI args parser when imported.
 - Upgraded [@lambda-lambda-lambda/types](https://github.com/lambda-lambda-lambda) (0.0.2)
+
+## [0.6.5] - 2024-05-30
+
+### Updated
+
+- Added Swagger dependency [AppConfigPlugin](https://github.com/lambda-lambda-lambda/middleware/tree/master/plugins/AppConfigPlugin)
+- Removed redundant prefix in Route path
+- Ensure Swagger generated path matches routing
+- Removed hardcoded middleware, fix output
