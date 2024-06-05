@@ -18,16 +18,16 @@ exports.handler = async (event, context, callback) => {
   const router = new Router(request, response);
   router.setPrefix(config.router.prefix);
 
-  // Middleware (order is important).
+  // Middleware (in execution order).
   router.use(accessControlHeaders);
   router.use(appConfigPlugin(config));
   router.use(swaggerUIViewer(swaggerJson));
 
-  // Send root response.
+  // Send root response ({{appPrefix}}/)
   router.get('/', function(req, res) {
 
     // Redirect to Swagger viewer.
-    res.setHeader('Location', `${config.router.prefix}?swagger-ui=html`);
+    res.setHeader('Location', `${config.router.prefix}/?swagger-ui=html`);
     res.status(301).send();
   });
 
