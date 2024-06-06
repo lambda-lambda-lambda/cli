@@ -33,7 +33,8 @@ export async function createFiles(appConfig: AppConfig, outPath: string): Promis
     pkgName: paramCase(appConfig.name),
     sdkPackage: (appConfig.sdkVersion === '2') ? 'aws-sdk-mock' : 'aws-sdk-client-mock',
     cfResourceName: pascalCase(appConfig.name),
-    routePath: ((appConfig.prefix !== '/') ? appConfig.prefix : '') + '/example',
+    routePath: '/example',
+    routePrefix: ((appConfig.prefix !== '/') ? appConfig.prefix : ''),
     nodeVersion: appConfig.runtime.replace(/[^0-9]/g, '')
   };
 

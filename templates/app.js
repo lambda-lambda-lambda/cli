@@ -23,11 +23,11 @@ exports.handler = (event, context, callback) => {
   router.use(appConfigPlugin(config));
   router.use(swaggerUIViewer(swaggerJson));
 
-  // Send root response ({{appPrefix}}/)
+  // Send root response (prefix path).
   router.get('/', function(req, res) {
 
-    // Redirect to Swagger viewer.
-    res.setHeader('Location', `${config.router.prefix}/?swagger-ui=html`);
+    // Redirect to Swagger UI viewer.
+    res.setHeader('Location', `${config.router.prefix}?swagger-ui=html`);
     res.status(301).send();
   });
 

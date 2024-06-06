@@ -14,7 +14,7 @@
 
 ## Running your app
 
-In the VS Code _Command Palette_ choose "Open Folder in Container" which will launch your application in a Docker container allowing for realtime development and testing.  Once launched, the application can be accessed using the [Swagger UI](https://swagger.io/tools/swagger-ui) at [http://localhost:3000{{appPrefix}}/](http://localhost:3000{{appPrefix}}/) or by using the [VS Code Swagger Viewer](https://marketplace.visualstudio.com/items?itemName=Arjun.swagger-viewer) (`swagger.json`)
+In the VS Code _Command Palette_ choose "Open Folder in Container" which will launch your application in a Docker container allowing for realtime development and testing.  Once launched, the application can be accessed using the [Swagger UI](https://swagger.io/tools/swagger-ui) at [http://localhost:3000{{routePrefix}}](http://localhost:3000{{routePrefix}}) or by using the [VS Code Swagger Viewer](https://marketplace.visualstudio.com/items?itemName=Arjun.swagger-viewer) (`swagger.json`)
 
 ## Deploying to AWS
 

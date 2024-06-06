@@ -10,7 +10,7 @@ module.exports = {
   /**
    * @openapi
    *
-   * {{routePath}}:
+   * {{routePrefix}}{{routePath}}:
    *   get:
    *     description: Route description.
    *     responses:
