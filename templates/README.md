@@ -59,9 +59,19 @@ Generate documentation using [JSDoc](https://jsdoc.app):
 
 ## Known issues
 
-### Project files are assigned root priviledges
+### Project files are assigned incorrect priviledges
 
-This is due to a [bug](https://github.com/microsoft/vscode-remote-release/issues/2402) in the [Remote Container](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension, not this project.  During the container build process when the local machines's UID/GID matches an existing user UID/GID in the container it assigns `root` by default.  Note, in normal circumstances the [`remoteUser`](https://containers.dev/implementors/json_reference/#remoteUser) assigned would be `vscode` which always matches the local machine's user UID/GID values.
+If you experience this when working between local/remote development environments this is due to the user UID [not being present during build time](https://github.com/microsoft/vscode-remote-release/issues/6834#issuecomment-1158600543). In this case the default `1000` is defined as both the UID/GID for the remote user.  You can override this behavior by updating the following project `devcontainer.json` build arguments or by exporting the UID/GID in your `.bash_profile`.
+
+```json
+"build": {
+  "dockerfile": "Dockerfile",
+  "args": {
+    "UID": "${localEnv:UID:1234}", // Default to 1234
+    "GID": "${localEnv:GID:1234}"
+  }
+},
+```
 
 ## References
 

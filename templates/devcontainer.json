@@ -1,16 +1,24 @@
 {
   "name": "{{appName}}",
-  "build": {"dockerfile": "Dockerfile"},
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "BASE_DIR": "/var/task",
+      "USER": "${localEnv:USER}",
+      "UID": "${localEnv:UID:1000}"
+      //"GROUP": "${localEnv:USER}",
+      //"GID": "${localEnv:GID:1000}",
+    }
+  },
   "forwardPorts": [3000],
   // Mounting AWS config (Requires container rebuild)
   //"mounts": ["source=${localEnv:HOME}/.aws,target=/root/.aws,type=bind,consistency=cached"],
-  "workspaceMount": "source=${localWorkspaceFolder},target=/var/task,type=bind",
   "workspaceFolder": "/var/task",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/var/task,type=bind",
   "containerEnv": {
     "LAMBDA_TASK_ROOT": "${containerWorkspaceFolder}/{{appName}}/src"
   },
   "updateContentCommand": "npm install --prefix ${containerWorkspaceFolder}/{{appName}} >/dev/null",
-  "postCreateCommand": "npm install -g pm2",
   "postStartCommand": "pm2 start ${containerWorkspaceFolder}/.devcontainer/ecosystem.config.js",
   "customizations": {
     "vscode": {
