@@ -153,3 +153,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 - Removed redundant prefix in Route path
 - Ensure Swagger generated path matches routing
 - Removed hardcoded middleware, fix output
+
+## [0.6.6] - 2024-06-06
+
+### Updated
+
+- Replace use of `appPrefix` w/ `routePrefix`
+- Workaround Docker [remoteUser permissions](https://github.com/microsoft/vscode-remote-release/issues/6834#issuecomment-1158600543)
