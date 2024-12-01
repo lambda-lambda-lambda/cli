@@ -160,3 +160,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 
 - Replace use of `appPrefix` w/ `routePrefix`
 - Workaround Docker [remoteUser permissions](https://github.com/microsoft/vscode-remote-release/issues/6834#issuecomment-1158600543)
+
+## [0.6.7] - 2024-09-02
+
+- Upgraded outdated NPM packages
+
+## [0.6.8] - 2024-12-01
+
+- NPM security update (CVE-2024-21538)
+- Upgraded outdated NPM packages
