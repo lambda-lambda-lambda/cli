@@ -1,6 +1,6 @@
 # L³ CLI
 
-[![npm version](https://badge.fury.io/js/@lambda-lambda-lambda%2Fcli.svg)](https://badge.fury.io/js/@lambda-lambda-lambda%2Fcli) [![](https://img.shields.io/npm/dm/@lambda-lambda-lambda/cli.svg)](https://www.npmjs.com/package/@lambda-lambda-lambda/cli) [![Build Status](https://img.shields.io/github/actions/workflow/status/lambda-lambda-lambda/cli/.github%2Fworkflows%2Fci.yml)](https://github.com/lambda-lambda-lambda/cli/actions) [![NO AI](https://raw.githubusercontent.com/nuxy/no-ai-badge/master/badge.svg)](https://github.com/nuxy/no-ai-badge)
+[![npm version](https://badge.fury.io/js/@lambda-lambda-lambda%2Fcli.svg)](https://badge.fury.io/js/@lambda-lambda-lambda%2Fcli) [![](https://img.shields.io/npm/dm/@lambda-lambda-lambda/cli.svg)](https://www.npmjs.com/package/@lambda-lambda-lambda/cli) [![Build Status](https://img.shields.io/github/actions/workflow/status/lambda-lambda-lambda/cli/.github%2Fworkflows%2Fci.yml)](https://github.com/lambda-lambda-lambda/cli/actions) [![Install size](https://packagephobia.com/badge?p=@lambda-lambda-lambda/cli)](https://packagephobia.com/result?p=@lambda-lambda-lambda/cli) [![NO AI](https://raw.githubusercontent.com/nuxy/no-ai-badge/master/badge.svg)](https://github.com/nuxy/no-ai-badge)
 
 Command-line tool to create a new [L³](https://github.com/lambda-lambda-lambda) application.
 
