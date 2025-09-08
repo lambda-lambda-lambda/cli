@@ -1,10 +1,12 @@
 'use strict';
 
-const chai = require('chai');
-const exec = require('child_process').exec;
-const fs   = require('fs');
-const os   = require('os');
-const path = require('path');
+import {describe, it, before, after} from 'mocha';
+
+import chai   from 'chai';
+import {exec} from 'child_process';
+import fs     from 'fs';
+import os     from 'os';
+import path   from 'path';
 
 const expect = chai.expect;
 
@@ -164,7 +166,9 @@ function setUp() {
  * Remove test output directory.
  */
 function tearDown() {
-  fs.existsSync(outDir) && fs.rmSync(outDir, {recursive: true});
+  if (fs.existsSync(outDir)) {
+    fs.rmSync(outDir, {recursive: true});
+  }
 }
 
 /**

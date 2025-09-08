@@ -32,7 +32,7 @@ program
   .option('--runtime <string>', 'Node.js Lambda runtime identifier', 'nodejs20.x')
   .option('--asynchronous', 'Use asynchronous handler?', false)
 
-  .action(async function(this: any, opts: AppConfig) {
+  .action(async function(opts: AppConfig) {
     const {name, description, prefix, timeout, sdkVersion, runtime} = opts;
 
     const errors = [];
@@ -84,7 +84,7 @@ program
       if (err instanceof Error) {
         console.error(`error: ${err.message}\n`);
       } else {
-        this.outputHelp();
+        program.outputHelp();
       }
     }
   });
@@ -94,7 +94,7 @@ program
   .description('Install L³ middleware plugin.')
   .argument('[PluginName]', 'Plugin name (Example: BasicAuthHandler), list available if undefined')
 
-  .action(async function(this: any, name: string) {
+  .action(async function(name: string) {
     const errors = [];
 
     try {
@@ -133,7 +133,7 @@ program
       if (err instanceof Error) {
         console.error(`error: ${err.message}\n`);
       } else {
-        this.outputHelp();
+        program.outputHelp();
       }
     }
   });
