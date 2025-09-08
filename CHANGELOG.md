@@ -173,3 +173,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 ## [0.6.9] - 2025-08-02
 
 - Upgraded outdated NPM packages
+
+## [0.7.0] - 2025-09-08
+
+- Support latest stable Node.js release
+- Replaced mocha package w/ `ts-mocha`
+- Replaced ESLint deprecated release
+- Set unique `s3_bucket` name value
+- Replaced unsupported dependency (`find`)
