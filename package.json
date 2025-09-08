@@ -6,7 +6,7 @@
   "types": "types.d.ts",
   "scripts": {
     "compile": "tsc -p ./",
-    "lint": "eslint src test --ext .js,.ts,.tsx",
+    "lint": "eslint src test",
     "prepack": "npm run compile",
     "test": "npm run compile && mocha --require test/mocha.env.js 'test/**/*.js'",
     "watch": "tsc -watch -p ./"
@@ -34,15 +34,15 @@
     "template-file": "^6.0.1"
   },
   "devDependencies": {
+    "@eslint/js": "^9.35.0",
     "@lambda-lambda-lambda/types": "^0.0.3",
-    "@types/node": "^20.17.9",
+    "@types/node": "^20.19.13",
     "@types/node-fetch": "^2.6.13",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
     "chai": "^4.5.0",
-    "eslint": "^8.57.1",
+    "eslint": "^9.35.0",
     "mocha": "^10.8.2",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.43.0"
   },
   "bin": {
     "lambda-lambda-lambda": "./dist/cli.js"
