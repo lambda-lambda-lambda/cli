@@ -101,10 +101,10 @@ export async function createFile(name: string, outPath: string, basePath: string
  * Return configured application prefix.
  */
 function getAppPrefix(basePath: string): string | void {
-  const files = require('find').fileSync('config.json', basePath);
+  const config = `${basePath}/config.json`;
 
-  if (files) {
-    return JSON.parse(fs.readFileSync(files[0], 'utf8')).router.prefix;
+  if (fs.existsSync(config)) {
+    return JSON.parse(fs.readFileSync(config, 'utf8')).router.prefix;
   }
 
   throw new Error('Failed to load application config');
