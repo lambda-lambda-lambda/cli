@@ -2,7 +2,7 @@
  *  lambda-lambda-lambda/cli
  *  Command-line tool to create a new L³ application.
  *
- *  Copyright 2023-2024, Marc S. Brooks (https://mbrooks.info)
+ *  Copyright 2023-2025, Marc S. Brooks (https://mbrooks.info)
  *  Licensed under the MIT license:
  *  http://www.opensource.org/licenses/mit-license.php
  */
