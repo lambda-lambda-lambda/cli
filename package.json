@@ -46,5 +46,8 @@
   },
   "bin": {
     "lambda-lambda-lambda": "./dist/cli.js"
+  },
+  "engines": {
+    "node": ">=22.0.0"
   }
 }
