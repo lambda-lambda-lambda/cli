@@ -1,5 +1,3 @@
-'use strict';
-
 import {describe, it, before, after} from 'mocha';
 
 import chai   from 'chai';
