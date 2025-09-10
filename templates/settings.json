@@ -14,5 +14,6 @@
     "MD024": false,
     "MD045": false,
     "MD046": false
-  }
+  },
+  "makefile.configureOnOpen": false
 }
