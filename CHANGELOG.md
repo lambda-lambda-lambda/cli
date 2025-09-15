@@ -181,3 +181,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 - Replaced ESLint deprecated release
 - Set unique `s3_bucket` name value
 - Replaced unsupported dependency (`find`)
+
+## [0.7.1] - 2025-09-15
+
+- Added quotes to `!Sub` interpolated values - `template.yaml`
