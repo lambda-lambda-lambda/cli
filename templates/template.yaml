@@ -19,10 +19,13 @@ Resources:
     Metadata:
       BuildMethod: makefile
 
+  #
+  # Lambda execution role
+  #
   LambdaEdgeRole:
     Type: AWS::IAM::Role
     Properties:
-      RoleName: !Sub ${AWS::StackName}-{{appName}}
+      RoleName: !Sub '${AWS::StackName}-{{appName}}'
       AssumeRolePolicyDocument:
         Version: 2012-10-17
         Statement:
@@ -35,6 +38,9 @@ Resources:
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
 
+  #
+  # CloudFront configuration
+  #
   CloudFrontConfig:
     Type: AWS::CloudFront::Distribution
     Properties:
