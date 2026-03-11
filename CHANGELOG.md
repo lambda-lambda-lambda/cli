@@ -185,3 +185,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 ## [0.7.1] - 2025-09-15
 
 - Added quotes to `!Sub` interpolated values - `template.yaml`
+
+## [0.7.2] - 2026-03-11
+
+- NPM security updates (minimatch required)
