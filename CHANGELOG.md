@@ -189,3 +189,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 ## [0.7.2] - 2026-03-11
 
 - NPM security updates (minimatch required)
+
+## [0.7.3] - 2026-04-14
+
+- Upgraded outdated NPM packages
